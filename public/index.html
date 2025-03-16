@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoKeRBot - Painel de Controle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Tela de carregamento com vídeo e áudio -->
+    <div id="loading-screen" class="loading-screen">
+        <video id="loading-video" autoplay preload="auto">
+            <source src="videos/carrega.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+    </div>
+    
+    <div class="container">
+        <header>
+            <img src="images/header.png" alt="JoKeRBot" class="header-logo">
+        </header>
+
+        <main>
+            <div class="panels">
+                <section class="panel connection">
+                    <h2>Conexão</h2>
+                    <div class="form-group">
+                        <label for="server">Servidor:</label>
+                        <input type="text" id="server" placeholder="mc.servidor.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Nome do Bot:</label>
+                        <input type="text" id="username" placeholder="JoKeRBot">
+                    </div>
+                    <div class="form-group">
+                        <label for="version">Versão:</label>
+                        <select id="version">
+                            <option value="1.21">1.21</option>
+                            <option value="1.20.4">1.20.4</option>
+                            <option value="1.20.2">1.20.2</option>
+                            <option value="1.20.1">1.20.1</option>
+                            <option value="1.20">1.20</option>
+                            <option value="1.19.4">1.19.4</option>
+                            <option value="1.19.3">1.19.3</option>
+                            <option value="1.19.2">1.19.2</option>
+                            <option value="1.19.1">1.19.1</option>
+                            <option value="1.19">1.19</option>
+                            <option value="1.18.2">1.18.2</option>
+                            <option value="1.18.1">1.18.1</option>
+                            <option value="1.18">1.18</option>
+                            <option value="1.17.1">1.17.1</option>
+                            <option value="1.17">1.17</option>
+                            <option value="1.16.5">1.16.5</option>
+                            <option value="1.16.4">1.16.4</option>
+                            <option value="1.16.3">1.16.3</option>
+                            <option value="1.16.2">1.16.2</option>
+                            <option value="1.16.1">1.16.1</option>
+                            <option value="1.16">1.16</option>
+                            <option value="1.15.2">1.15.2</option>
+                            <option value="1.15.1">1.15.1</option>
+                            <option value="1.15">1.15</option>
+                            <option value="1.14.4">1.14.4</option>
+                            <option value="1.14.3">1.14.3</option>
+                            <option value="1.14.2">1.14.2</option>
+                            <option value="1.14.1">1.14.1</option>
+                            <option value="1.14">1.14</option>
+                            <option value="1.13.2">1.13.2</option>
+                            <option value="1.13.1">1.13.1</option>
+                            <option value="1.13">1.13</option>
+                            <option value="1.12.2">1.12.2</option>
+                            <option value="1.12.1">1.12.1</option>
+                            <option value="1.12">1.12</option>
+                            <option value="1.11.2">1.11.2</option>
+                            <option value="1.11.1">1.11.1</option>
+                            <option value="1.11">1.11</option>
+                            <option value="1.10.2">1.10.2</option>
+                            <option value="1.10.1">1.10.1</option>
+                            <option value="1.10">1.10</option>
+                            <option value="1.9.4">1.9.4</option>
+                            <option value="1.9.3">1.9.3</option>
+                            <option value="1.9.2">1.9.2</option>
+                            <option value="1.9.1">1.9.1</option>
+                            <option value="1.9">1.9</option>
+                            <option value="1.8.9">1.8.9</option>
+                            <option value="1.8.8">1.8.8</option>
+                        </select>
+                    </div>
+                    <button id="connect-btn" class="purple-btn">
+                        <i class="fas fa-plug"></i> Conectar
+                    </button>
+                    <div class="status-display">
+                        <div class="status-indicator offline"></div>
+                        <span class="status-text">Desconectado</span>
+                    </div>
+                </section>
+
+                <section class="panel controls">
+                    <h2>Controles</h2>
+                    <button class="control-btn" data-command="trocarSkin">
+                        <i class="fas fa-user"></i> Trocar Skin
+                    </button>
+                    <button class="control-btn" data-command="inventario">
+                        <i class="fas fa-box-open"></i> Inventário
+                    </button>
+                    <button class="control-btn" data-command="enderChest">
+                        <i class="fas fa-chest"></i> Ender Chest
+                    </button>
+                    <button class="control-btn" data-command="navegacao">
+                        <i class="fas fa-map-marker"></i> Navegação
+                    </button>
+                    <button class="control-btn" data-command="mineracao">
+                        <i class="fas fa-gem"></i> Mineração
+                    </button>
+                    <button class="control-btn" data-command="antiAfk">
+                        <i class="fas fa-running"></i> Anti AFK
+                    </button>
+                    <button class="control-btn" data-command="reconectar">
+                        <i class="fas fa-redo"></i> Reconectar
+                    </button>
+                    <button class="control-btn" data-command="configuracoes">
+                        <i class="fas fa-cog"></i> Configurações
+                    </button>
+                    <button class="control-btn" data-command="spotify">
+                        <i class="fab fa-spotify"></i> Spotify
+                    </button>
+                    <button class="control-btn" data-command="navegador">
+                        <i class="fas fa-compass"></i> Navegador
+                    </button>
+                    <button class="control-btn danger" data-command="desconectar">
+                        <i class="fas fa-power-off"></i> Desconectar
+                    </button>
+                </section>
+            </div>
+
+            <section class="panel console">
+                <div class="panel-header">
+                    <h2>Console & Comandos</h2>
+                    <div class="console-controls">
+                        <button id="clear-console" title="Limpar Console">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button id="auto-scroll" class="active" title="Auto-rolagem">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="console-output" id="console-output"></div>
+                <div class="console-input">
+                    <input type="text" id="command-input" placeholder="Digite um comando (help para ajuda)">
+                    <button id="send-command">Enviar</button>
+                </div>
+            </section>
+        </main>
+
+        <section class="stats-panel">
+            <div class="stat-box">
+                <i class="fas fa-heart"></i>
+                <span class="stat-label">Saúde</span>
+                <div class="progress-bar">
+                    <div class="progress" id="health-bar" style="width: 0%"></div>
+                </div>
+                <span class="stat-value" id="health-value">0/20</span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-drumstick-bite"></i>
+                <span class="stat-label">Fome</span>
+                <div class="progress-bar">
+                    <div class="progress" id="food-bar" style="width: 0%"></div>
+                </div>
+                <span class="stat-value" id="food-value">0/20</span>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-shield-alt"></i>
+                <span class="stat-label">XP</span>
+                <div class="progress-bar">
+                    <div class="progress" id="xp-bar" style="width: 0%"></div>
+                </div>
+                <span class="stat-value" id="xp-value">0</span>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">Direitos Reservados a @real.pedroo</div>
+                <img src="images/footer.png" alt="BY STACKZZX" class="footer-logo">
+                <a href="https://www.instagram.com/pedroz.jpg" target="_blank" class="instagram-link">
+                    <i class="fab fa-instagram"></i> @pedroz.jpg
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <div class="version-tag">v1.0.0</div>
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Configurações</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Personalidade do Bot</h3>
+                <div class="form-group">
+                    <label for="personality-level">Nível de Rebeldia:</label>
+                    <input type="range" id="personality-level" min="1" max="10" value="8">
+                    <span id="personality-value">8 - Muito Rebelde</span>
+                </div>
+                
+                <h3>Anti-TNT</h3>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="anti-tnt" checked>
+                    <label for="anti-tnt">Ativar proteção contra TNT</label>
+                </div>
+                
+                <h3>DeepSeek API</h3>
+                <div class="form-group">
+                    <label for="api-key">Chave da API:</label>
+                    <input type="password" id="api-key" placeholder="Insira a chave da API DeepSeek">
+                </div>
+                
+                <h3>Reconexão Automática</h3>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="auto-reconnect" checked>
+                    <label for="auto-reconnect">Reconectar automaticamente</label>
+                </div>
+                <div class="form-group">
+                    <label for="reconnect-attempts">Tentativas máximas:</label>
+                    <input type="number" id="reconnect-attempts" min="1" max="20" value="5">
+                </div>
+                
+                <div class="button-group">
+                    <button class="purple-btn" id="save-settings">Salvar</button>
+                    <button class="cancel-btn" id="cancel-settings">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="skin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Trocar Skin</h2>
+                <span class="close-modal" data-modal="skin">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Cole o URL da skin do site NameMC para trocar a skin do bot.</p>
+                
+                <div class="form-group">
+                    <label for="skin-url">URL da Skin:</label>
+                    <input type="text" id="skin-url" placeholder="https://namemc.com/skin/...">
+                </div>
+                
+                <div class="skin-preview">
+                    <div class="skin-preview-container">
+                        <img src="" id="skin-preview-img" style="display: none;">
+                        <div class="skin-preview-placeholder">
+                            <i class="fas fa-user"></i>
+                            <span>Preview da Skin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="purple-btn" id="apply-skin">Aplicar Skin</button>
+                    <button class="cancel-btn" id="cancel-skin">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="spotify-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Spotify</h2>
+                <span class="close-modal" data-modal="spotify">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Controle o Spotify com comandos de voz no Minecraft</p>
+                
+                <div class="spotify-status">
+                    <div class="spotify-indicator offline"></div>
+                    <span class="status-text">Desconectado</span>
+                </div>
+                
+                <div class="spotify-controls">
+                    <button class="spotify-btn" id="spotify-login" disabled>
+                        <i class="fab fa-spotify"></i> Conectar ao Spotify
+                    </button>
+                    
+                    <div class="spotify-player-controls">
+                        <button class="spotify-control-btn" id="spotify-prev" disabled>
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button class="spotify-control-btn" id="spotify-play-pause" disabled>
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="spotify-control-btn" id="spotify-next" disabled>
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="spotify-commands">
+                    <h3>Comandos no chat:</h3>
+                    <ul>
+                        <li><code>!spotify play</code> - Tocar música</li>
+                        <li><code>!spotify pause</code> - Pausar música</li>
+                        <li><code>!spotify next</code> - Próxima música</li>
+                        <li><code>!spotify prev</code> - Música anterior</li>
+                        <li><code>!spotify volume [0-100]</code> - Ajustar volume</li>
+                    </ul>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cancel-btn" id="close-spotify">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="browser-modal">
+        <div class="modal-content" style="width: 95%; max-width: 900px;">
+            <div class="modal-header">
+                <h2>Navegador</h2>
+                <span class="close-modal" data-modal="browser">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="browser-controls">
+                    <div class="url-bar">
+                        <input type="text" id="browser-url" placeholder="https://example.com">
+                        <button id="browser-go">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="browser-buttons">
+                        <button id="browser-back">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button id="browser-forward">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button id="browser-refresh">
+                            <i class="fas fa-sync"></i>
+                        </button>
+                        <button id="browser-home">
+                            <i class="fas fa-home"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="browser-container">
+                    <div class="browser-placeholder">
+                        <i class="fas fa-globe"></i>
+                        <p>Digite uma URL acima para navegar</p>
+                    </div>
+                    <iframe id="browser-iframe" frameborder="0" style="display: none;"></iframe>
+                </div>
+                
+                <div class="button-group">
+                    <button class="cancel-btn" id="close-browser">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="navegacao-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Navegação</h2>
+                <span class="close-modal" data-modal="navegacao">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Navegue para coordenadas específicas no mundo</p>
+                
+                <div class="form-group">
+                    <label for="coord-x">Coordenada X:</label>
+                    <input type="number" id="coord-x" placeholder="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="coord-y">Coordenada Y:</label>
+                    <input type="number" id="coord-y" placeholder="64">
+                </div>
+                
+                <div class="form-group">
+                    <label for="coord-z">Coordenada Z:</label>
+                    <input type="number" id="coord-z" placeholder="0">
+                </div>
+                
+                <div class="navegacao-info">
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="info-label">Posição Atual:</span>
+                        <span class="info-value" id="pos-atual">Desconhecida</span>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-compass"></i>
+                        <span class="info-label">Destino:</span>
+                        <span class="info-value" id="pos-destino">Nenhum</span>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-tasks"></i>
+                        <span class="info-label">Status:</span>
+                        <span class="info-value" id="nav-status">Inativo</span>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="purple-btn" id="iniciar-navegacao">Ir para Coordenadas</button>
+                    <button class="danger-btn" id="parar-navegacao">Parar Navegação</button>
+                    <button class="cancel-btn" id="fechar-navegacao">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="mineracao-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mineração</h2>
+                <span class="close-modal" data-modal="mineracao">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Procure e minere blocos específicos automaticamente</p>
+                
+                <div class="form-group">
+                    <label for="tipo-bloco">Tipo de Bloco:</label>
+                    <select id="tipo-bloco">
+                        <option value="diamond_ore">Minério de Diamante</option>
+                        <option value="iron_ore">Minério de Ferro</option>
+                        <option value="gold_ore">Minério de Ouro</option>
+                        <option value="emerald_ore">Minério de Esmeralda</option>
+                        <option value="coal_ore">Minério de Carvão</option>
+                        <option value="lapis_ore">Minério de Lápis-Lazúli</option>
+                        <option value="redstone_ore">Minério de Redstone</option>
+                        <option value="quartz_ore">Minério de Quartzo</option>
+                        <option value="ancient_debris">Detritos Ancestrais</option>
+                    </select>
+                </div>
+                
+                <div class="mineracao-info">
+                    <div class="info-box">
+                        <i class="fas fa-gem"></i>
+                        <span class="info-label">Alvo:</span>
+                        <span class="info-value" id="bloco-alvo">Nenhum</span>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-tasks"></i>
+                        <span class="info-label">Status:</span>
+                        <span class="info-value" id="min-status">Inativo</span>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="purple-btn" id="iniciar-mineracao">Iniciar Mineração</button>
+                    <button class="danger-btn" id="parar-mineracao">Parar Mineração</button>
+                    <button class="cancel-btn" id="fechar-mineracao">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
