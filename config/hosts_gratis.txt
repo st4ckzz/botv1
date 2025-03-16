@@ -1,0 +1,25 @@
+# Lista de hosts gratuitos conhecidos
+# Formato: domínio (sem www ou http)
+# Comentários começam com #
+
+# Servidores populares gratuitos
+aternos.me
+server.pro
+minehut.gg
+ploudos.com
+freemcserver.net
+mcprohosting.com
+serveromat.com
+falixnodes.net
+mchost.cc
+pebblehost.com
+bisecthosting.com
+
+# Outros servidores potencialmente gratuitos
+falix.gg
+g-portal.com
+ggservers.com
+skynode.pro
+pockethost.app
+tebex.io
+birdflop.com
